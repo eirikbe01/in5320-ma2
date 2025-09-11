@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Table from "./Table.js";
+import Search from './Search.js';
 
 function App() {
   /* Create state:
@@ -14,13 +15,23 @@ function App() {
   const [pageNumber, setPageNumber] = useState(1); //Default = Page 1
 
 
+  const handleSearch = (query) => {
+    const searchQuery = query.trim();
+    if (searchQuery) {
+      setSearchQuery(searchQuery);
+    } else {
+      setSearchQuery("");
+    }
+  }
+
+
   useEffect(() => {
     // All parameters are appended to this URL.
     let apiQuery = "https://dhis2-app-course.ifi.uio.no/api?";
 
     // If searchQuery isn't empty add &search=searchQuery to the API request.
     if (searchQuery) {
-      apiQuery = apiQuery + "&search=" + searchQuery;
+      apiQuery = apiQuery + "&search=" + searchQuery.trim();
     }
 
     // Add what page we are requesting to the API request.
@@ -40,6 +51,7 @@ function App() {
   return (
     <div className="App">
       <h1>Country lookup</h1>
+      <Search value={searchQuery} onSearch={handleSearch}/>
       <Table apiData={apiData} />
     </div>
   );
