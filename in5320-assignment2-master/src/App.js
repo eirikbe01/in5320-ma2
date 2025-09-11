@@ -10,12 +10,13 @@ function App() {
   */
 
   const [apiData, setApiData] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(); // Default = No search query
+  const [searchQuery, setSearchQuery] = useState("Norway"); // Default = No search query
   const [pageNumber, setPageNumber] = useState(1); //Default = Page 1
+
 
   useEffect(() => {
     // All parameters are appended to this URL.
-    let apiQuery = "https://dhis2-app-course-api.ifi.uio.no/api?";
+    let apiQuery = "https://dhis2-app-course.ifi.uio.no/api?";
 
     // If searchQuery isn't empty add &search=searchQuery to the API request.
     if (searchQuery) {
@@ -32,7 +33,8 @@ function App() {
       .then((data) => {
         // Then add response to state.
         setApiData(data);
-      });
+      })
+      .catch((err) => console.log(`Failed with: ${err}`));
   }, [searchQuery, pageNumber]); // Array containing which state changes that should re-reun useEffect()
 
   return (
