@@ -3,6 +3,7 @@ import "./App.css";
 import Table from "./Table.js";
 import Search from './Search.js';
 import PageSize from './PageSize.js';
+import Pagination from './Pagination.js';
 
 function App() {
   /* Create state:
@@ -12,7 +13,7 @@ function App() {
   */
 
   const [apiData, setApiData] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("Norway"); // Default = No search query
+  const [searchQuery, setSearchQuery] = useState(""); // Default = No search query
   const [pageNumber, setPageNumber] = useState(1); //Default = Page 1
   const [pageSize, setPageSize] = useState(10);
 
@@ -55,6 +56,7 @@ function App() {
       <Search value={searchQuery} onSearch={handleSearch}/>
       <PageSize onPageSizeChange={setPageSize}/>
       <Table apiData={apiData} />
+      <Pagination currentPage={pageNumber} onPageChange={setPageNumber}/>
     </div>
   );
 }
