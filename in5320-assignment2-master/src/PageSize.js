@@ -1,0 +1,22 @@
+
+
+function PageSize({ onPageSizeChange }) {
+    const options = [10, 20, 50];
+
+    const handleChange = (event) => {
+        onPageSizeChange(Number(event.target.value));
+    }
+    return(
+        <div>
+        <p>Results per page:</p>
+            <select onChange={handleChange}>
+                {options.map((opt) => {
+                    return <option value={opt}>{opt}</option>
+                })}
+            </select>
+        </div>
+    );
+}
+
+
+export default PageSize;
