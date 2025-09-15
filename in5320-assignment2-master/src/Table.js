@@ -13,20 +13,24 @@ function Table(props) {
     // Write your code here:
     return(
       <table>
-        <tr>
-          <th>Country</th>
-          <th>Continent</th>
-          <th>Population</th>
-        </tr>
-        {data.map((row) => {
-          return (
-            <tr>
-              <td>{row.Country}</td>
-              <td>{row.Continent}</td>
-              <td>{row.Population}</td>
-            </tr>
-          );
-        })}
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Continent</th>
+            <th>Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row) => {
+            return (
+              <tr key={row.Country}>
+                <td>{row.Country}</td>
+                <td>{row.Continent}</td>
+                <td>{row.Population}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     );
   }
