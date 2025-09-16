@@ -38,9 +38,7 @@ function App() {
 
     // Add what page we are requesting to the API request.
     apiQuery = apiQuery + "&page=" + pageNumber + "&pageSize=" + pageSize;
-    console.log("Page size set to: " + pageSize);
     // Query data from API.
-    console.log("Querying: " + apiQuery);
     fetch(apiQuery)
       .then((results) => results.json())
       .then((data) => {

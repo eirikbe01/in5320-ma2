@@ -1,3 +1,12 @@
 .App {
   text-align: center;
 }
+
+
+.columnHeaders {
+  border: 1px solid;
+}
+
+.columnHeaders:hover {
+  cursor: pointer;
+}
