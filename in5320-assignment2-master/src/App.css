@@ -29,8 +29,9 @@ th:not(:last-child) {
   margin: 24px;
 }
 
-.countryColumn:hover {
+th.countryColumn:hover {
   cursor: pointer;
+  background-color: hsl(60, 56%, 87%);
 }
 
 .otherColumns {
@@ -39,8 +40,9 @@ th:not(:last-child) {
   margin: 24px;
 }
 
-.otherColumns:hover {
+th.otherColumns:hover {
   cursor: pointer;
+  background-color: hsl(60, 56%, 87%);
 }
 
 

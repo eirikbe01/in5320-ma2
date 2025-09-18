@@ -50,10 +50,10 @@ function Table(props) {
         <table>
           <thead>
             <tr>
-              <th className="countryColumn" onClick={() => handleSort("Country")}>Country {sorting.column === "country" ? (sorting.direction === "asc" ? "↑" : "↓") : ""}</th>
+              <th className="countryColumn" onClick={() => handleSort("Country")}>Country</th>
               <th className="otherColumns" onClick={() => handleSort("Continent")}>Continent</th>
               <th className="otherColumns" onClick={() => handleSort("Population")}>Population</th>
-              <th className="otherColumns" onClick={() => handleSort("Population")}>Population Growth</th>
+              <th className="otherColumns" onClick={() => handleSort("PopulationGrowth")}>Population Growth</th>
             </tr>
           </thead>
           <tbody>
