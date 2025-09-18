@@ -16,6 +16,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState(""); // Default = No search query
   const [pageNumber, setPageNumber] = useState(1); //Default = Page 1
   const [pageSize, setPageSize] = useState(10);
+  const [pageCount, setPageCount] = useState();
 
 
   const handleSearch = (query) => {
@@ -44,6 +45,7 @@ function App() {
       .then((data) => {
         // Then add response to state.
         setApiData(data);
+        setPageCount(data.pager.pageCount);
       })
       .catch((err) => console.log(`Failed with: ${err}`));
   }, [searchQuery, pageNumber, pageSize]); // Array containing which state changes that should re-reun useEffect()
@@ -52,9 +54,9 @@ function App() {
     <div className="App">
       <h1>Country lookup</h1>
       <Search value={searchQuery} onSearch={handleSearch}/>
-      <PageSize onPageSizeChange={setPageSize}/>
       <Table apiData={apiData} />
-      <Pagination currentPage={pageNumber} onPageChange={setPageNumber}/>
+      <Pagination currentPage={pageNumber} onPageChange={setPageNumber} totalPages={pageCount}/>
+      <PageSize onPageSizeChange={setPageSize}/>
     </div>
   );
 }

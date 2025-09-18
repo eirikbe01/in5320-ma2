@@ -21,8 +21,9 @@ function Search({value, onSearch}) {
     }
 
     return(
-        <div>
-            <input 
+        <div className="searchContainer">
+            <input
+                className="searchField"
                 type="text" 
                 value={searchTerm}
                 placeholder="Search..."
@@ -30,6 +31,7 @@ function Search({value, onSearch}) {
                 onKeyDown={(e) => handleKeyDown(e)}>
             </input>
             <button
+                className="goBtn"
                 type="button"
                 onClick={submit}
                 >

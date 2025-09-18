@@ -1,12 +1,97 @@
 .App {
   text-align: center;
+  padding: 12px;
+}
+
+.table{
+  border-collapse: collapse;
+  width: 100%;
+  margin: 24px auto;
+  border: 1px solid hsl(0, 0%, 28%);
+  border-radius: 8px;
+  table-layout: fixed;
+  background-color: hsl(60, 56%, 93%);
+  box-shadow: 1px 1px 1px 1px hsl(0, 0%, 45%);
 }
 
 
-.columnHeaders {
-  border: 1px solid;
+td:not(:last-child),
+th:not(:last-child) {
+  border-right: 1px solid;
 }
 
-.columnHeaders:hover {
+.countryColumn {
+  text-align: left;
+  width: 1%;
+  white-space: nowrap;
+  min-width: 500px;
+  padding: 8px 12px;
+  margin: 24px;
+}
+
+.countryColumn:hover {
   cursor: pointer;
+}
+
+.otherColumns {
+  text-align: left;
+  padding: 8px 12px;
+  margin: 24px;
+}
+
+.otherColumns:hover {
+  cursor: pointer;
+}
+
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.searchField {
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+}
+
+.goBtn{
+  padding: 4px 8px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.paginationBtns {
+  border: none;
+  background-color: inherit;
+  font-size: 2rem;
+}
+
+.paginationBtns:hover {
+  cursor: pointer;
+  background-color: aliceblue;
+}
+
+.pageSizeContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.select {
+  padding: 4px 8px !important;      /* smaller padding */
+  font-size: 1rem;
+  line-height: 1;      /* shrink height */
+  border-radius: 6px;    /* optional, style consistency */
+  border: 1px solid #ccc;
 }

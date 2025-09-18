@@ -1,6 +1,6 @@
 
 
-function Pagination({ currentPage, onPageChange }) {
+function Pagination({ currentPage, onPageChange, totalPages }) {
 
 
     const handlePrevious = () => {
@@ -14,15 +14,17 @@ function Pagination({ currentPage, onPageChange }) {
     };
 
     return(
-        <div>
-            <button onClick={handlePrevious}>
-                Previous
-            </button>
+        <div className="pagination">
+            {currentPage > 1 && 
+                <button className="paginationBtns" onClick={handlePrevious}>
+                👈
+                </button>
+            }
 
-            <p>Page {currentPage}</p>
+            <p>Page {currentPage} of {totalPages}</p>
 
-            <button onClick={handleNext}>
-                Next
+            <button className="paginationBtns" onClick={handleNext}>
+                👉
             </button>
         </div>
     );

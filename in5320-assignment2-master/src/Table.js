@@ -4,6 +4,7 @@ function Table(props) {
 
   const data = props.apiData.results
   console.log(data);
+  console.log(props.apiData);
 
   const [sorting, setSorting] = useState({
     column: null,
@@ -45,26 +46,30 @@ function Table(props) {
 
     // Write your code here:
     return(
-      <table>
-        <thead>
-          <tr>
-            <th className="columnHeaders" onClick={() => handleSort("Country")}>Country {sorting.column === "country" ? (sorting.direction === "asc" ? "↑" : "↓") : ""}</th>
-            <th className="columnHeaders" onClick={() => handleSort("Continent")}>Continent</th>
-            <th className="columnHeaders" onClick={() => handleSort("Population")}>Population</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedData.map((row, idx) => {
-            return (
-              <tr key={idx}>
-                <td>{row.Country}</td>
-                <td>{row.Continent}</td>
-                <td>{row.Population}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="table">
+        <table>
+          <thead>
+            <tr>
+              <th className="countryColumn" onClick={() => handleSort("Country")}>Country {sorting.column === "country" ? (sorting.direction === "asc" ? "↑" : "↓") : ""}</th>
+              <th className="otherColumns" onClick={() => handleSort("Continent")}>Continent</th>
+              <th className="otherColumns" onClick={() => handleSort("Population")}>Population</th>
+              <th className="otherColumns" onClick={() => handleSort("Population")}>Population Growth</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedData.map((row, idx) => {
+              return (
+                <tr key={idx}>
+                  <td className="countryColumn">{row.Country}</td>
+                  <td className="otherColumns">{row.Continent}</td>
+                  <td className="otherColumns">{row.Population}</td>
+                  <td className="otherColumns">{row.PopulationGrowth}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     );
   }
 }

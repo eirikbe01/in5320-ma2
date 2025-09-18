@@ -7,9 +7,9 @@ function PageSize({ onPageSizeChange }) {
         onPageSizeChange(Number(event.target.value));
     }
     return(
-        <div>
-        <p>Results per page:</p>
-            <select onChange={handleChange}>
+        <div className="pageSizeContainer">
+            <p>Results per page:</p>
+            <select className="select" onChange={handleChange}>
                 {options.map((opt) => {
                     return <option key={opt} value={opt}>{opt}</option>
                 })}
